@@ -2,8 +2,8 @@ import RPi.GPIO as GPIO, time
 import urllib2
  
 # Setting up variables for site checking
-sitewearechecking = "http://www.idg.com.au"
-textweshouldfind = "<title>IDG Communications - Australia</title>"
+sitewearechecking = "http://www.idg.com.au" # Web address of the site you want to check.
+textweshouldfind = "<title>IDG Communications - Australia</title>" # Some HTML you know should be returned from that site.
 frequencyofchecking = 5 #Every 5 Seconds
 siteup = False #True = site is up
  
