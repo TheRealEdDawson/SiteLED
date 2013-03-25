@@ -16,22 +16,22 @@ GPIO.setup(RED_LED, GPIO.OUT)
  
 # Main program
 try:
-while True:
-response = urllib2.urlopen(sitewearechecking)
-html = response.read()
-if textweshouldfind in html
-siteup = True
-GPIO.output(GREEN_LED, True)
-GPIO.output(RED_LED, False)
-else
-siteup = False
-GPIO.output(RED_LED, True)
-GPIO.output(GREEN_LED, False)
-if siteup == True:
-print "Site is up!"
-else
-print "Site is down!"
-time.sleep(frequencyofchecking)
+    while True:
+        response = urllib2.urlopen(sitewearechecking)
+        html = response.read()
+        if textweshouldfind in html:
+            siteup = True
+            GPIO.output(GREEN_LED, True)
+            GPIO.output(RED_LED, False)
+        else:
+            siteup = False
+            GPIO.output(RED_LED, True)
+            GPIO.output(GREEN_LED, False)
+        if siteup == True:
+            print "Site is up!"
+        else:
+            print "Site is down!"
+        time.sleep(frequencyofchecking)
  
 except KeyboardInterrupt:
 GPIO.cleanup()
