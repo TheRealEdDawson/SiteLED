@@ -34,4 +34,4 @@ try:
         time.sleep(frequencyofchecking)
  
 except KeyboardInterrupt:
-GPIO.cleanup()
+    GPIO.cleanup()
