@@ -17,6 +17,7 @@ GPIO.setup(RED_LED, GPIO.OUT)
 # Main program
 try:
     while True:
+        GPIO.output(GREEN_LED, False)
         response = urllib2.urlopen(sitewearechecking)
         html = response.read()
         if textweshouldfind in html:
