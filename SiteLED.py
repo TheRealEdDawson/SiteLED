@@ -35,3 +35,4 @@ try:
  
 except KeyboardInterrupt:
     GPIO.cleanup()
+    print "Clean program exit."
