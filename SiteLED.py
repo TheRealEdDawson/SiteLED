@@ -2,9 +2,9 @@ import RPi.GPIO as GPIO, time
 import urllib2
  
 # Setting up variables for site checking
-sitewearechecking = "http://www.idg.com.au" # Web address of the site you want to check.
-textweshouldfind = "<title>IDG Communications - Australia</title>" # Some HTML you know should be returned from that site.
-frequencyofchecking = 5 #Every 5 Seconds
+site_we_are_checking = "http://www.idg.com.au" # Web address of the site you want to check.
+text_we_should_find = "<title>IDG Communications - Australia</title>" # Some HTML you know should be returned from that site.
+frequency_of_checking = 5 #Every 5 Seconds
 siteup = False #True = site is up
  
 # Setting up some structures for the Raspberry Pi LED controls
@@ -18,9 +18,9 @@ GPIO.setup(RED_LED, GPIO.OUT)
 try:
     while True:
         GPIO.output(GREEN_LED, False)
-        response = urllib2.urlopen(sitewearechecking)
+        response = urllib2.urlopen(site_we_are_checking)
         html = response.read()
-        if textweshouldfind in html:
+        if text_we_should_find in html:
             siteup = True
             GPIO.output(GREEN_LED, True)
             GPIO.output(RED_LED, False)
@@ -32,7 +32,7 @@ try:
             print "Site is up!"
         else:
             print "Site is down!"
-        time.sleep(frequencyofchecking)
+        time.sleep(frequency_of_checking)
  
 except KeyboardInterrupt:
     GPIO.cleanup()
